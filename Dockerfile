@@ -8,7 +8,7 @@ RUN npm install
 
 COPY . .
 
-RUN npm run build
+# RUN npm run build
 
 # ---- Runtime Stage ----
 
@@ -16,7 +16,7 @@ FROM node:22-slim
 
 WORKDIR /app
 
-COPY --from=builder /app/dist .
+COPY --from=builder /app .
 
 RUN npm install --only=production
 
